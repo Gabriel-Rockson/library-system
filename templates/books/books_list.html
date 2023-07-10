@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Books</title>
+  </head>
+  <body>
+    <h1>This is a list of all the books in our library</h1>
+    {% for book in books %}
+    <p>{{ book.title }}</p>
+    <p>{{ book.date_published }}</p>
+    <p>{{ book.description }}</p>
+    <p>{{ book.number_of_pages }} {% endfor %}</p>
+  </body>
+</html>
