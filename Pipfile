@@ -6,10 +6,12 @@ name = "pypi"
 [packages]
 django = "*"
 psycopg2-binary = "*"
+django-extensions = "*"
 
 [dev-packages]
 black = "*"
 pylint = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.11"
