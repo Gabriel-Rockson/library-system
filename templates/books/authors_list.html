@@ -3,13 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <title>All Authors</title>
   </head>
-  <body>
-    <h1>This is a list of all the authors</h1>
+  <body style="margin: 0 200px; font-family: 'Roboto', sans-serif">
+    <h1>Authors</h1>
     {% for author in authors %}
-    <p>{{ author.name }}</p>
-    <p>{{ author.biography }} {% endfor %}</p>
-    
+    <div
+      style="
+        padding: 25px;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      "
+    >
+      <p><strong>{{ author.name }}</strong></p>
+      <p>{{ author.biography }}</p>
+      <p>{{ author.number_of_books_published }}</p>
+      <a href="{{ author.get_absolute_url }}">Go to detail page</a>
+    </div>
+    {% endfor %}
   </body>
 </html>

@@ -36,5 +36,13 @@ class Book(models.Model):
     def __str__(self) -> str:
         return self.title
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+
+        return reverse("book_detail", kwargs={"pk": self.pk})
+
+    def author_name(self):
+        return self.author.name
+
     class Meta:
         ordering = ("-date_published",)
