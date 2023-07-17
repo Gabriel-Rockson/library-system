@@ -39,7 +39,7 @@ def general(request, pk):
         request,
         "books/general.html",
         context={
-            "home": author,
+            "home": authors,
             "name_of_programmer": "Valerie Odiniho Dromo Harmond The First (I)",
         },
     )

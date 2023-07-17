@@ -17,13 +17,15 @@
     <div>
       <p>Author's Name: {{author.name }}</p>
       <p>Author's Biography: {{ author.biography }}</p>
-      <p>Author's Date of birth: {{author.get_date_of_birth}}</p>
+      <p>Author's Date of birth: {{author.date_of_birth}}</p>
 
       <h3>Author's Published Book</h3>
-      <p>Book title: {{ author.book_name }}</p>
-      <p>{{ author.number_of_books_published }}</p>
-
-      <p>Date Published: {{ the_book.date_published }}</p>
+      {%for book in author.books.all%}
+      <p>Book name: {{book.title}}</p>
+      <p>Date Published: {{book.date_published}} {% endfor %}</p>
+      <p>
+        <a href="{{ books.author.get_absolute_url }}">Authors</a>
+      </p>
     </div>
   </body>
 </html>

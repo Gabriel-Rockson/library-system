@@ -11,22 +11,56 @@
     />
     <title>All Authors</title>
   </head>
-  <body style="margin: 0 200px; font-family: 'Roboto', sans-serif">
-    <h1>Authors</h1>
-    {% for author in authors %}
+  <h1
+    style="
+      position: absolute;
+      margin-top: 10px;
+
+      text-align: center;
+    "
+  >
+    Authors
+  </h1>
+
+  <body
+    style="
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      position: relative;
+    "
+  >
     <div
       style="
-        padding: 25px;
-        border: 1px solid black;
-        border-radius: 10px;
-        margin-bottom: 20px;
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-right: 50px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        position: relative;
       "
     >
-      <p><strong>{{ author.name }}</strong></p>
-      <p>{{ author.biography }}</p>
-      <p>{{ author.number_of_books_published }}</p>
-      <a href="{{ author.get_absolute_url }}">Go to detail page</a>
+      {% for author in authors %}
+      <div
+        style="
+          padding: 25px;
+          border: 1px solid black;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          background-color: lightblue;
+          width: 300px;
+          margin: 30px;
+          align-self: center;
+        "
+      >
+        <p><strong>{{ author.name }}</strong></p>
+        <p>{{ author.biography }}</p>
+        <p>{{ author.number_of_books_published }}</p>
+        <a href="{{ author.get_absolute_url }}">Go to detail page</a>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </body>
 </html>

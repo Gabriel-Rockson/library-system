@@ -31,9 +31,6 @@ class Author(models.Model):
     def __str__(self) -> str:
         return self.name
 
-    def get_date_of_birth(self):
-        return self.date_of_birth
-
     def get_absolute_url(self):
         from django.urls import reverse
 
@@ -45,11 +42,6 @@ class Author(models.Model):
 
     def book_name(self):
         return self.books
-
-    def date_of_birth(self):
-        return self.date_of_birth
-
-    date_of_birth
 
     class Meta:
         ordering = (

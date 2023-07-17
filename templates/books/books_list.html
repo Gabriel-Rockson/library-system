@@ -11,24 +11,53 @@
     />
     <title>All Books</title>
   </head>
-  <body style="margin: 0 200px; font-family: 'Roboto', sans-serif">
-    <h1>Books</h1>
-    {% for book in books %}
+
+  <h1 style="position: absolute; margin-top: 10px; text-align: center">
+    Books
+  </h1>
+
+  <body
+    style="
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      position: relative;
+    "
+  >
     <div
       style="
-        padding: 25px;
-        border: 1px solid black;
-        border-radius: 10px;
-        margin-bottom: 20px;
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-right: 50px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        position: relative;
       "
     >
-      <p>{{ book.id }}</p>
-      <p>{{ book.title }}</p>
-      <p>{{ book.date_published }}</p>
-      <p>{{ book.description }}</p>
-      <p>{{ book.number_of_pages }}</p>
-      <a href="{{ book.get_absolute_url }}">Go to detail page</a>
+      {% for book in books %}
+      <div
+        style="
+          padding: 25px;
+          border: 1px solid black;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          background-color: lightblue;
+          width: 300px;
+          align-self: center;
+        "
+      >
+        {% comment %}
+        <p>{{ book.id }}</p>
+        {% endcomment %}
+        <p>Title: {{ book.title }}</p>
+        <p>Published: {{ book.date_published }}</p>
+        <p>About: {{ book.description }}</p>
+        <p>{{ book.number_of_pages }}</p>
+        <a href="{{ book.get_absolute_url }}">Go to detail page</a>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </body>
 </html>
