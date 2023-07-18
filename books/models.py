@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from authors.models import Author
 
 
 class Book(models.Model):
@@ -19,7 +20,6 @@ class Book(models.Model):
     )
     date_published = models.DateField(
         verbose_name=("Date of Publication"),
-        blank=False,
         null=False,
         help_text=_("When was this book published?"),
     )
@@ -29,11 +29,20 @@ class Book(models.Model):
         null=False,
         help_text=_("How many pages does this book have?"),
     )
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="books")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return self.title
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+
+        return reverse("book_detail", kwargs={"pk": self.pk})
+
+    def author_name(self):
+        return self.author.name
 
     class Meta:
         ordering = ("-date_published",)

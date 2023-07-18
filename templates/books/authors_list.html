@@ -9,11 +9,17 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <title>All Books</title>
+    <title>All Authors</title>
   </head>
+  <h1
+    style="
+      position: absolute;
+      margin-top: 10px;
 
-  <h1 style="position: absolute; margin-top: 10px; text-align: center">
-    Books
+      text-align: center;
+    "
+  >
+    Authors
   </h1>
 
   <body
@@ -36,7 +42,7 @@
         position: relative;
       "
     >
-      {% for book in books %}
+      {% for author in authors %}
       <div
         style="
           padding: 25px;
@@ -45,17 +51,14 @@
           margin-bottom: 20px;
           background-color: lightblue;
           width: 300px;
+          margin: 30px;
           align-self: center;
         "
       >
-        {% comment %}
-        <p>{{ book.id }}</p>
-        {% endcomment %}
-        <p>Title: {{ book.title }}</p>
-        <p>Published: {{ book.date_published }}</p>
-        <p>About: {{ book.description }}</p>
-        <p>{{ book.number_of_pages }}</p>
-        <a href="{{ book.get_absolute_url }}">Go to detail page</a>
+        <p><strong>{{ author.name }}</strong></p>
+        <p>{{ author.biography }}</p>
+        <p>{{ author.number_of_books_published }}</p>
+        <a href="{{ author.get_absolute_url }}">Go to detail page</a>
       </div>
       {% endfor %}
     </div>

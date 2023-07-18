@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Author Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="margin: 0 200px; font-family: 'Roboto', sans-serif">
+    <h3 style="color: brown">{{ author.name }}</h3>
+
+    <div>
+      <p>Author's Name: {{author.name }}</p>
+      <p>Author's Biography: {{ author.biography }}</p>
+      <p>Author's Date of birth: {{author.date_of_birth}}</p>
+
+      <h3>Author's Published Book</h3>
+      {%for book in author.books.all%}
+      <p>Book name: {{book.title}}</p>
+      <p>Date Published: {{book.date_published}} {% endfor %}</p>
+      <p>
+        <a href="{{ books.author.get_absolute_url }}">Authors</a>
+      </p>
+    </div>
+  </body>
+</html>
